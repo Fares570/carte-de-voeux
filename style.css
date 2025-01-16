@@ -1,0 +1,156 @@
+/* Body de la page d'accueil */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;  /* Ajouté pour empiler les éléments (texte et carte) */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Style pour le texte h2 */
+h2 {
+    color: #FF1493; /* Rose vif */
+    text-align: center; /* Centrer le texte */
+    margin-bottom: 20px; /* Espace entre le texte et la carte */
+    font-size: 2rem; /* Ajuste la taille du texte */
+}
+
+/* Conteneur de la carte */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Carte de Vœux */
+.card {
+    max-width: 70%;
+    max-height: 70%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+/* Animation pour disparaître */
+.card.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+/* Feu d'artifice en arrière-plan */
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.gifer.com/4M57.gif') no-repeat center center;
+    background-size: cover;
+    z-index: 0; /* S'assurer que le feu d'artifice est bien en arrière-plan */
+    opacity: 0.8; /* Légèrement transparent pour ne pas couvrir tout le contenu */
+}
+/* Conteneur principal */
+.welcome-container {
+    text-align: center;
+    color: black;
+}
+
+/* Coeur plus grand */
+.heart {
+    position: relative;
+    width: 500px;  /* Augmente la taille du coeur */
+    height: 500px; /* Ajuste la hauteur proportionnellement */
+    margin: 0 auto;
+}
+
+.heart-shape {
+    width: 100%;
+    height: 100%;
+}
+
+/* Photo de Gabrielle plus grande */
+.baby-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px; /* Augmente la taille de la photo */
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid white; /* Augmente l'épaisseur de la bordure pour l'esthétique */
+}
+
+/* Texte */
+h1 {
+    margin-top: 30px;
+    font-size: 6vw; /* Utilise la largeur de la fenêtre pour ajuster dynamiquement la taille */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(45deg, #FF6F61, #FFD700, #4CAF50, #2196F3);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Pour les écrans de petite taille (smartphones) */
+@media (max-width: 600px) {
+    .card {
+        max-width: 90%; /* La carte sera un peu plus grande sur les petits écrans */
+        max-height: 90%;
+    }
+
+    .baby-photo {
+        width: 150px; /* Réduit la taille de la photo sur mobile */
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 2rem; /* Réduit la taille du texte */
+    }
+
+    .heart {
+        width: 300px; /* Ajuste la taille du cœur */
+        height: 300px;
+    }
+}
+
+/* Pour les écrans de taille moyenne (tablettes) */
+@media (max-width: 900px) {
+    .card {
+        max-width: 80%; /* Ajuste la taille de la carte pour les tablettes */
+        max-height: 80%;
+    }
+
+    .baby-photo {
+        width: 200px; /* Taille de la photo pour les tablettes */
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Taille de texte adaptée aux tablettes */
+    }
+
+    .heart {
+        width: 400px; /* Ajuste la taille du cœur pour les tablettes */
+        height: 400px;
+    }
+}
